@@ -413,6 +413,17 @@ function openHorizon()
                 setDestination = Config.CONTROLS.SET_DESTINATION.LABEL,
                 viewOnMap = Config.CONTROLS.VIEW_ON_MAP.LABEL,
             },
+            texts = {
+                markers = Lang.MARKERS,
+                noMarkers = Lang.NO_MARKERS,
+                aimHint = Lang.AIM_HINT,
+                distance = Lang.DISTANCE,
+                currentDestination = Lang.CURRENT_DESTINATION,
+                viewOnMap = Lang.VIEW_ON_MAP,
+                setDestination = Lang.SET_DESTINATION,
+                removeDestination = Lang.REMOVE_DESTINATION,
+                decimalSeparator = Lang.DECIMAL_SEPARATOR,
+            },
         },
     })
 
@@ -470,7 +481,7 @@ RegisterCommand('-' .. Config.COMMAND, function()
     end
 end, false)
 
-RegisterKeyMapping('+' .. Config.COMMAND, 'Marcadores no horizonte', 'keyboard', Config.KEY)
+RegisterKeyMapping('+' .. Config.COMMAND, Lang.KEY_LABEL, 'keyboard', Config.KEY)
 
 RegisterNetEvent(resourceName .. ':registerPoint', function(pointId, pointData)
     registerPoint(pointId, pointData)

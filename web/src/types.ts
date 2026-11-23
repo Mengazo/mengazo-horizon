@@ -15,10 +15,24 @@ export interface HorizonControls {
   viewOnMap: string
 }
 
+/** Texts from config/lang.lua. {distance} is replaced by the formatted distance. */
+export interface HorizonTexts {
+  markers: string
+  noMarkers: string
+  aimHint: string
+  distance: string
+  currentDestination: string
+  viewOnMap: string
+  setDestination: string
+  removeDestination: string
+  decimalSeparator: string
+}
+
 export interface OpenPayload {
   theme: string
   blipImages: boolean
   controls: HorizonControls
+  texts: HorizonTexts
 }
 
 export interface PointsPayload {

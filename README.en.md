@@ -9,6 +9,10 @@ Map markers projected onto the horizon. The player holds a key (default `J`), th
 1. Add `ensure mengazo-horizon` to your `resources.cfg`.
 2. The interface ships prebuilt in `web/build`. To change it, run `npm ci --prefer-offline` and `npm run build` inside `web/`.
 
+## Language
+
+The texts are in English by default. Set `LANGUAGE = 'pt-BR'` in `config/config.lua` for Brazilian Portuguese, or edit the texts in `config/lang.lua`.
+
 ## Where markers come from
 
 | Source | How |
@@ -25,7 +29,7 @@ A higher `priority` is shown ahead of the others (a mission objective, for examp
 
 The game has no native that returns a blip's name as text, but it does have `AddTextComponentSubstringBlipName(blip)`, which injects that name into text drawn by the game itself. That is why the title on a blip's card is drawn by the game (font `TITLE_FONT`) inside a window cut out of the interface card; the rest of the card is NUI.
 
-Name order: `label` from `setBlipDetails` → the blip's real name → the game's default name for the sprite (`BLIP_<sprite>`) → `DEFAULT_LABEL`.
+Name order: `label` from `setBlipDetails` → the blip's real name → the game's default name for the sprite (`BLIP_<sprite>`) → `DEFAULT_LABEL` (in `config/lang.lua`, or in `config/config.lua` to override it).
 
 If the text is vertically misaligned, adjust `TITLE_OFFSET_Y`.
 
@@ -58,7 +62,7 @@ These icons apply to registered points and to sprites without an image. Map blip
 
 ## Configuration
 
-Every option is in `config/config.lua`, with a comment next to each key. The comments are written in Portuguese.
+Every option is in `config/config.lua`, with a comment next to each key.
 
 ## License
 

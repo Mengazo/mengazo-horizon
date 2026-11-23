@@ -12,17 +12,28 @@ const DEBUG_OPEN: OpenPayload = {
   theme: '#e83e8c',
   blipImages: true,
   controls: { setDestination: 'M1', viewOnMap: 'M2' },
+  texts: {
+    markers: 'Markers',
+    noMarkers: 'No markers nearby',
+    aimHint: 'Aim at a marker to see its details',
+    distance: '{distance} away',
+    currentDestination: 'Current destination · {distance}',
+    viewOnMap: 'View on map',
+    setDestination: 'Set destination',
+    removeDestination: 'Remove destination',
+    decimalSeparator: '.',
+  },
 }
 
 const DEBUG_POINTS: DebugPoint[] = [
-  { id: 'point:mission', label: 'Pegue outra arma', location: 'Rua Vinewood · Centro', description: 'Trabalhar para o Brian exige equipamento melhor. Compre uma arma longa na loja de armas mais próxima.', color: '#e83e8c', icon: 'weapon', image: '', sprite: false, bearing: 4, elevation: 0.47, distance: 193 },
-  { id: 'blip:12', label: false, previewLabel: 'Garagem', location: 'Avenida Alta · Alta', description: '', color: '#5db6e5', icon: 'pin', image: '', sprite: 357, bearing: -19, elevation: 0.5, distance: 86 },
-  { id: 'blip:70', label: false, previewLabel: 'Loja de Roupas', location: 'Innocence Blvd · Strawberry', description: '', color: '#f0c850', icon: 'pin', image: '', sprite: 366, bearing: -10, elevation: 0.5, distance: 203 },
-  { id: 'blip:18',label: false, previewLabel: 'Loja de Departamento', location: 'Rua Clinton · Vinewood', description: '', color: '#72cc72', icon: 'pin', image: '', sprite: 52, bearing: 27, elevation: 0.44, distance: 412 },
-  { id: 'blip:31', label: false, previewLabel: 'Hospital', location: 'Rua Elgin · Pillbox Hill', description: '', color: '#e03232', icon: 'pin', image: '', sprite: 80, bearing: -41, elevation: 0.42, distance: 1340 },
-  { id: 'blip:44', label: false, previewLabel: 'Mecânica', location: 'Rua Carson · Burton', description: '', color: '#f0c850', icon: 'pin', image: '', sprite: 402, bearing: 96, elevation: 0.5, distance: 655 },
-  { id: 'blip:52', label: false, previewLabel: 'Concessionária', location: 'Avenida Power · Pillbox Hill', description: '', color: '#c1a9f5', icon: 'pin', image: '', sprite: 225, bearing: -118, elevation: 0.5, distance: 2210 },
-  { id: 'blip:60', label: false, previewLabel: 'Departamento Policial', location: 'Avenida Sinner · Mission Row', description: '', color: '#5db6e5', icon: 'pin', image: '', sprite: 60, bearing: 170, elevation: 0.5, distance: 978 },
+  { id: 'point:mission', label: 'Get another weapon', location: 'Vinewood Blvd · Downtown Vinewood', description: 'Working for Brian takes better gear. Buy a rifle at the nearest gun store.', color: '#e83e8c', icon: 'weapon', image: '', sprite: false, bearing: 4, elevation: 0.47, distance: 193 },
+  { id: 'blip:12', label: false, previewLabel: 'Garage', location: 'Alta St · Alta', description: '', color: '#5db6e5', icon: 'pin', image: '', sprite: 357, bearing: -19, elevation: 0.5, distance: 86 },
+  { id: 'blip:70', label: false, previewLabel: 'Clothes Store', location: 'Innocence Blvd · Strawberry', description: '', color: '#f0c850', icon: 'pin', image: '', sprite: 366, bearing: -10, elevation: 0.5, distance: 203 },
+  { id: 'blip:18',label: false, previewLabel: 'Convenience Store', location: 'Clinton Ave · Vinewood', description: '', color: '#72cc72', icon: 'pin', image: '', sprite: 52, bearing: 27, elevation: 0.44, distance: 412 },
+  { id: 'blip:31', label: false, previewLabel: 'Hospital', location: 'Elgin Ave · Pillbox Hill', description: '', color: '#e03232', icon: 'pin', image: '', sprite: 80, bearing: -41, elevation: 0.42, distance: 1340 },
+  { id: 'blip:44', label: false, previewLabel: 'Mechanic', location: 'Carson Ave · Burton', description: '', color: '#f0c850', icon: 'pin', image: '', sprite: 402, bearing: 96, elevation: 0.5, distance: 655 },
+  { id: 'blip:52', label: false, previewLabel: 'Car Dealer', location: 'Power St · Pillbox Hill', description: '', color: '#c1a9f5', icon: 'pin', image: '', sprite: 225, bearing: -118, elevation: 0.5, distance: 2210 },
+  { id: 'blip:60', label: false, previewLabel: 'Police Station', location: 'Sinner St · Mission Row', description: '', color: '#5db6e5', icon: 'pin', image: '', sprite: 60, bearing: 170, elevation: 0.5, distance: 978 },
 ]
 
 const HORIZONTAL_FIELD_OF_VIEW = 90

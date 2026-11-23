@@ -3,7 +3,7 @@ game 'gta5'
 lua54 'yes'
 
 author 'Mengazo'
-description 'Mengazo Horizon - Marcadores do mapa projetados no horizonte'
+description 'Mengazo Horizon - Map markers projected onto the horizon'
 version '1.0.0'
 
 mengazo_production 'free'
@@ -24,6 +24,7 @@ server_scripts {
 
 files {
     'config/config.lua',
+    'config/lang.lua',
     'web/build/index.html',
     'web/build/**/*'
 }

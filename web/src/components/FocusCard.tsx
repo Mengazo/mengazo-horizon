@@ -2,15 +2,16 @@ import { createEffect, createSignal, on, onCleanup, onMount, Show } from 'solid-
 import ControlBadge from './ControlBadge'
 import { Icon, PointIcon } from './Icons'
 import { getSpriteImage } from '../lib/blipSprites'
-import { formatDistance, hexToRgb } from '../lib/format'
+import { hexToRgb, withDistance } from '../lib/format'
 import { fetchNui, isEnvBrowser } from '../lib/nui'
-import type { HorizonControls, HorizonPoint, ScreenBounds } from '../types'
+import type { HorizonControls, HorizonPoint, HorizonTexts, ScreenBounds } from '../types'
 
 interface FocusCardProps {
   point: HorizonPoint
   distance: number | undefined
   destination: boolean
   controls: HorizonControls
+  texts: HorizonTexts
   blipImages: boolean
   onTitleSlot: (bounds: ScreenBounds | null) => void
 }
@@ -86,8 +87,8 @@ export default function FocusCard(props: FocusCardProps) {
 
           <div class="focus-title">
             <span class="micro-label">
-              <Show when={props.destination} fallback={`A ${formatDistance(props.distance)}`}>
-                Destino atual · {formatDistance(props.distance)}
+              <Show when={props.destination} fallback={withDistance(props.texts.distance, props.distance)}>
+                {withDistance(props.texts.currentDestination, props.distance)}
               </Show>
             </span>
 
@@ -118,13 +119,13 @@ export default function FocusCard(props: FocusCardProps) {
           <div class="focus-action">
             <ControlBadge label={props.controls.viewOnMap} />
             <Icon name="map" />
-            <span>Ver no mapa</span>
+            <span>{props.texts.viewOnMap}</span>
           </div>
 
           <div class="focus-action" classList={{ active: props.destination, confirmed: destinationConfirmed() }}>
             <ControlBadge label={props.controls.setDestination} />
             <Icon name={props.destination ? 'check' : 'navigation'} />
-            <span>{props.destination ? 'Remover destino' : 'Definir destino'}</span>
+            <span>{props.destination ? props.texts.removeDestination : props.texts.setDestination}</span>
           </div>
         </div>
       </div>

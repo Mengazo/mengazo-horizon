@@ -9,6 +9,10 @@ Marcadores do mapa projetados no horizonte. O jogador segura a tecla (padrão `J
 1. Adicione `ensure mengazo-horizon` no `resources.cfg`.
 2. A interface já vai buildada em `web/build`. Para alterar: `npm ci --prefer-offline` e `npm run build` dentro de `web/`.
 
+## Idioma
+
+Os textos vêm em inglês. Para português, coloque `LANGUAGE = 'pt-BR'` no `config/config.lua`, ou edite os textos em `config/lang.lua`.
+
 ## De onde vêm os marcadores
 
 | Origem | Como |
@@ -25,7 +29,7 @@ Marcadores do mapa projetados no horizonte. O jogador segura a tecla (padrão `J
 
 O jogo não tem native que devolva o nome de um blip como texto, mas tem `AddTextComponentSubstringBlipName(blip)`, que injeta esse nome em um texto desenhado pelo próprio jogo. Por isso o título do card dos blips é desenhado pelo jogo (fonte `TITLE_FONT`) em uma janela aberta no card da interface; o restante do card é NUI.
 
-Ordem do nome: `label` do `setBlipDetails` → nome real do blip → nome padrão do jogo para o sprite (`BLIP_<sprite>`) → `DEFAULT_LABEL`.
+Ordem do nome: `label` do `setBlipDetails` → nome real do blip → nome padrão do jogo para o sprite (`BLIP_<sprite>`) → `DEFAULT_LABEL` (em `config/lang.lua`, ou em `config/config.lua` para sobrescrever).
 
 Se o texto ficar desalinhado na vertical, ajuste `TITLE_OFFSET_Y`.
 

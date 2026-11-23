@@ -59,7 +59,7 @@ function registerPoint(pointId, pointData)
     registeredPoints[pointKey] = {
         id = 'point:' .. pointKey,
         coords = pointCoords,
-        label = pointDetails.label or Config.DEFAULT_LABEL,
+        label = pointDetails.label or (Config.DEFAULT_LABEL or Lang.DEFAULT_LABEL),
         description = pointDetails.description or '',
         color = pointDetails.color or Config.THEME_COLOR,
         icon = pointDetails.icon or Config.DEFAULT_ICON,
@@ -214,7 +214,7 @@ function getGameBlipLabel(candidate)
         return GetLabelText(spriteLabel), false
     end
 
-    return Config.DEFAULT_LABEL, false
+    return (Config.DEFAULT_LABEL or Lang.DEFAULT_LABEL), false
 end
 
 function formatGameBlipPoint(candidate)

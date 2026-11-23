@@ -2,7 +2,7 @@ import { createMemo, createSignal, For, Show } from 'solid-js'
 import { createStore, reconcile } from 'solid-js/store'
 import FocusCard from './components/FocusCard'
 import Marker from './components/Marker'
-import { hexToRgb } from './lib/format'
+import { hexToRgb, setDecimalSeparator } from './lib/format'
 import { useNuiEvent } from './lib/nui'
 import { POINT_STATE_COVERED, POINT_STATE_VISIBLE } from './types'
 import type { DestinationPayload, FramePayload, HorizonPoint, OpenPayload, PointsPayload, ScreenBounds } from './types'
@@ -15,6 +15,17 @@ const DEFAULT_SETTINGS: OpenPayload = {
   theme: '#e83e8c',
   blipImages: true,
   controls: { setDestination: 'M1', viewOnMap: 'M2' },
+  texts: {
+    markers: 'Markers',
+    noMarkers: 'No markers nearby',
+    aimHint: 'Aim at a marker to see its details',
+    distance: '{distance} away',
+    currentDestination: 'Current destination · {distance}',
+    viewOnMap: 'View on map',
+    setDestination: 'Set destination',
+    removeDestination: 'Remove destination',
+    decimalSeparator: '.',
+  },
 }
 
 export default function App() {
@@ -70,9 +81,15 @@ export default function App() {
   }
 
   useNuiEvent<OpenPayload>('open', (payload) => {
-    const nextSettings = { ...DEFAULT_SETTINGS, ...payload, controls: { ...DEFAULT_SETTINGS.controls, ...payload?.controls } }
+    const nextSettings = {
+      ...DEFAULT_SETTINGS,
+      ...payload,
+      controls: { ...DEFAULT_SETTINGS.controls, ...payload?.controls },
+      texts: { ...DEFAULT_SETTINGS.texts, ...payload?.texts },
+    }
 
     applyTheme(nextSettings.theme)
+    setDecimalSeparator(nextSettings.texts.decimalSeparator)
     setSettings(nextSettings)
     setFocusedId(null)
     setVisible(true)
@@ -144,21 +161,21 @@ export default function App() {
 
         <Show when={focusedPoint()} keyed>
           {(point) => (
-            <FocusCard point={point} distance={distances[point.id]} destination={destinationId() === point.id} controls={settings().controls} blipImages={settings().blipImages} onTitleSlot={setTitleSlotBounds} />
+            <FocusCard point={point} distance={distances[point.id]} destination={destinationId() === point.id} controls={settings().controls} texts={settings().texts} blipImages={settings().blipImages} onTitleSlot={setTitleSlotBounds} />
           )}
         </Show>
 
         <div class="legend">
-          <span class="micro-label">Marcadores</span>
+          <span class="micro-label">{settings().texts.markers}</span>
           <span class="legend-count">{pointStore.list.length}</span>
         </div>
 
         <Show when={pointStore.list.length === 0}>
-          <div class="empty-hint">Nenhum marcador por perto</div>
+          <div class="empty-hint">{settings().texts.noMarkers}</div>
         </Show>
 
         <Show when={pointStore.list.length > 0 && focusedId() === null}>
-          <div class="empty-hint">Mire em um marcador para ver os detalhes</div>
+          <div class="empty-hint">{settings().texts.aimHint}</div>
         </Show>
       </div>
     </Show>
