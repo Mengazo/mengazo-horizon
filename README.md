@@ -4,6 +4,19 @@
 
 Marcadores do mapa projetados no horizonte. O jogador segura a tecla (padrão `J`), o jogo desfoca e os blips próximos aparecem na direção real em que estão. Mirando em um marcador, abre o card com nome, localização e distância, e ele pode definir o destino (clique esquerdo) ou abrir o mapa nele (clique direito).
 
+## Comparação com o GTA VI
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/horizon.jpg" alt="mengazo-horizon no FiveM: card do marcador com distância, rua, ver no mapa e definir destino"></td>
+    <td width="50%"><img src="docs/gta-vi.jpg" alt="GTA VI: card do objetivo com descrição, ver no mapa e definir destino"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>mengazo-horizon</b> no FiveM</td>
+    <td align="center"><b>GTA VI</b> (imagem: Rockstar Games)</td>
+  </tr>
+</table>
+
 ## Instalação
 
 1. Adicione `ensure mengazo-horizon` no `resources.cfg`.
