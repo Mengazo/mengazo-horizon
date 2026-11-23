@@ -1,6 +1,8 @@
 # mengazo-horizon
 
-Marcadores do mapa projetados no horizonte. O jogador segura a tecla (padrão `J`), o jogo desfoca e os blips próximos aparecem na direção real em que estão. Mirando em um marcador, abre o card com nome, descrição e distância, e ele pode definir o destino ou abrir o mapa.
+**Português** · [English](README.en.md)
+
+Marcadores do mapa projetados no horizonte. O jogador segura a tecla (padrão `J`), o jogo desfoca e os blips próximos aparecem na direção real em que estão. Mirando em um marcador, abre o card com nome, localização e distância, e ele pode definir o destino (clique esquerdo) ou abrir o mapa nele (clique direito).
 
 ## Instalação
 
