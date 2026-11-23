@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss' source('../src');
+
+@theme {
+  --font-sans: 'Montserrat', 'Segoe UI', sans-serif;
+}
+
+@theme inline {
+  --color-accent: rgb(var(--main));
+}
+
+:root {
+  --main: 232, 62, 140;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.6);
+  --panel: rgb(17, 17, 18);
+  --card-border: rgba(255, 255, 255, 0.08);
+  font-size: 1.4815vh;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-sans);
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.browser-preview {
+  background: linear-gradient(180deg, #6f7f8f 0%, #a9a08f 46%, #4d4f45 54%, #2b2d2a 100%);
+}
+
+svg {
+  pointer-events: none;
+}
+
+.horizon {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  animation: fade-in 0.2s ease-out both;
+}
+
+.veil {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 7, 0.37);
+}
+
+body.browser-preview .veil {
+  display: block;
+}
+
+.micro-label {
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.key-badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding: 0 0.4rem;
+  border-radius: 0.45rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.15s ease-out;
+  will-change: transform;
+}
+
+.marker[data-state='3'] {
+  opacity: 0;
+}
+
+.marker[data-state='4'] {
+  opacity: 0;
+  transition: none;
+}
+
+.marker.focused {
+  z-index: 3;
+}
+
+.marker-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: rgb(21, 21, 23);
+  border: 0.14rem solid rgb(var(--point));
+  color: rgb(var(--point));
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, background 0.15s ease-out;
+}
+
+.marker-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.marker-icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+}
+
+.sprite-icon {
+  display: block;
+  width: 1.55rem;
+  height: 1.55rem;
+  background-color: rgb(var(--point));
+  isolation: isolate;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+.sprite-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.marker.focused .sprite-icon {
+  background-color: #ffffff;
+}
+
+.marker.focused .marker-icon {
+  transform: translate(-50%, -50%) scale(1.18);
+  background: rgb(var(--point));
+  color: rgb(21, 21, 23);
+}
+
+.marker[data-state='1'] .marker-icon,
+.marker[data-state='2'] .marker-icon {
+  transform: translate(-50%, -50%) scale(0.62);
+  opacity: 0.85;
+}
+
+.marker-check {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: rgb(21, 21, 23);
+}
+
+.marker-check svg {
+  width: 0.65rem;
+  height: 0.65rem;
+  stroke-width: 3.5;
+}
+
+.marker-distance {
+  position: absolute;
+  top: 1.65rem;
+  left: 0;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.9);
+  transition: opacity 0.15s ease-out;
+}
+
+.marker.focused .marker-distance,
+.marker[data-state='1'] .marker-distance,
+.marker[data-state='2'] .marker-distance {
+  opacity: 0;
+}
+
+.focus-card {
+  position: absolute;
+  top: calc(50% - 2.25rem);
+  left: calc(50% + 4.6rem);
+  z-index: 4;
+  width: 21rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.5);
+}
+
+.focus-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--panel);
+  border: 1px solid var(--card-border);
+  border-radius: 0.9rem;
+}
+
+.focus-backdrop.with-slot {
+  clip-path: polygon(
+    evenodd,
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 0,
+    var(--slot-left) var(--slot-top),
+    var(--slot-right) var(--slot-top),
+    var(--slot-right) var(--slot-bottom),
+    var(--slot-left) var(--slot-bottom),
+    var(--slot-left) var(--slot-top)
+  );
+}
+
+.focus-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.95rem;
+}
+
+.focus-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.focus-avatar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.65rem;
+  color: rgb(var(--point));
+  background: rgba(var(--point), 0.12);
+  border: 1px solid rgba(var(--point), 0.35);
+  overflow: hidden;
+}
+
+.focus-avatar svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.focus-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.focus-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.focus-title-slot {
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
+  min-width: 0;
+}
+
+.focus-title-slot h2 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body.browser-preview .focus-backdrop.with-slot {
+  clip-path: none;
+}
+
+.game-title-preview {
+  font-family: 'Arial Narrow', 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.focus-location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.focus-location svg {
+  flex: 0 0 auto;
+  width: 0.85rem;
+  height: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.focus-location span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.focus-description {
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.focus-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.focus-action {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 -0.45rem;
+  padding: 0.3rem 0.45rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease-out;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.focus-action svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.focus-action.active,
+.focus-action.active svg {
+  color: rgb(var(--point));
+}
+
+.focus-action.confirmed {
+  background: rgba(var(--point), 0.16);
+}
+
+.focus-action .mouse-icon {
+  flex: 0 0 auto;
+  width: 1.3rem;
+  height: 1.625rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.mouse-button {
+  stroke: none;
+  fill: transparent;
+}
+
+.mouse-button.pressed {
+  fill: rgb(var(--point));
+  animation: mouse-click 1.5s ease-in-out infinite;
+}
+
+.focus-action.confirmed .mouse-button.pressed {
+  animation: none;
+  fill: #ffffff;
+}
+
+@keyframes mouse-click {
+  0%,
+  55%,
+  100% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.15;
+  }
+  85% {
+    opacity: 1;
+  }
+}
+
+.reticle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  border: 0.12rem dashed rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s ease-out;
+}
+
+.reticle.locked {
+  opacity: 0;
+}
+
+.legend {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.legend .micro-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.72rem;
+  text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.9);
+}
+
+.legend-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding: 0 0.4rem;
+  border-radius: 0.45rem;
+  background: rgb(var(--main));
+  font-size: 0.68rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.empty-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  padding: 0.6rem 0.95rem;
+  border-radius: 0.6rem;
+  background: rgb(21, 21, 23);
+  border: 1px solid var(--card-border);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
