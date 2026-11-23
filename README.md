@@ -53,3 +53,7 @@ exports['mengazo-horizon']:setBlipDetails(blip, { description = 'Atendimento 24 
 `pin`, `store`, `weapon`, `car`, `garage`, `medical`, `police`, `money`, `home`, `star`, `flag`, `tool`, `user`, `work`
 
 Esses ícones valem para pontos registrados e para sprites sem imagem. Os blips do mapa usam o desenho real do sprite, pintado com a cor do blip (`USE_BLIP_IMAGES`). As imagens ficam em `web/public/blips/<sprite>.png` e vieram da referência de blips do docs.fivem.net; para adicionar um sprite novo, coloque o arquivo lá, inclua o id em `web/src/lib/blipSprites.ts` e rode o build.
+
+## Licença
+
+Código sob a licença MIT (veja `LICENSE`). As imagens em `web/public/blips` são os ícones de blip do GTA V, propriedade da Rockstar Games, obtidos da referência de blips do docs.fivem.net, e não estão cobertas pela licença MIT.

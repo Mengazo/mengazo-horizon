@@ -6,7 +6,7 @@ author 'Mengazo'
 description 'Mengazo Horizon - Marcadores do mapa projetados no horizonte'
 version '1.0.0'
 
-mengazo_production 'exclusive'
+mengazo_production 'free'
 mengazo_base 'standalone'
 
 ui_page 'web/build/index.html'
