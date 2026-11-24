@@ -4,6 +4,8 @@
 
 Map markers projected onto the horizon. The player holds a key (default `J`), the game blurs and nearby blips appear in the real direction they are in. Aiming at a marker opens a card with its name, location and distance, and the player can set it as the waypoint (left click) or open the map on it (right click).
 
+Made by [Mengazo](https://tebex.mengazo.com/?utm_source=github&utm_medium=free-script&utm_campaign=horizon). Free and open source.
+
 ## Compared with GTA VI
 
 <table>
@@ -78,6 +80,15 @@ These icons apply to registered points and to sprites without an image. Map blip
 ## Configuration
 
 Every option is in `config/config.lua`, with a comment next to each key.
+
+## More from Mengazo
+
+Horizon is free. If it helps your server, take a look at the paid scripts, built with the same care and supporting ESX, QBCore and Qbox:
+
+- **[Mengazo Survival](https://tebex.mengazo.com/scripts/survival?utm_source=github&utm_medium=free-script&utm_campaign=horizon)**: a full death system, from the shot to the respawn. Every death has a replay, and reports reach staff with the clip attached.
+- **[Mengazo Police](https://tebex.mengazo.com/scripts/police?utm_source=github&utm_medium=free-script&utm_campaign=horizon)**: tablet, criminal records, incident reports, penal code, arrests, live dispatch and body cam in a single system.
+
+Store: **[tebex.mengazo.com](https://tebex.mengazo.com/?utm_source=github&utm_medium=free-script&utm_campaign=horizon)** · Support and news: **[Discord](https://dsc.gg/mengazo)**
 
 ## License
 

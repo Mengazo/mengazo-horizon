@@ -4,6 +4,8 @@
 
 Marcadores do mapa projetados no horizonte. O jogador segura a tecla (padrão `J`), o jogo desfoca e os blips próximos aparecem na direção real em que estão. Mirando em um marcador, abre o card com nome, localização e distância, e ele pode definir o destino (clique esquerdo) ou abrir o mapa nele (clique direito).
 
+Feito pela [Mengazo](https://tebex.mengazo.com/?utm_source=github&utm_medium=free-script&utm_campaign=horizon). Grátis e de código aberto.
+
 ## Comparação com o GTA VI
 
 <table>
@@ -72,6 +74,15 @@ exports['mengazo-horizon']:setBlipDetails(blip, { description = 'Atendimento 24 
 `pin`, `store`, `weapon`, `car`, `garage`, `medical`, `police`, `money`, `home`, `star`, `flag`, `tool`, `user`, `work`
 
 Esses ícones valem para pontos registrados e para sprites sem imagem. Os blips do mapa usam o desenho real do sprite, pintado com a cor do blip (`USE_BLIP_IMAGES`). As imagens ficam em `web/public/blips/<sprite>.png` e vieram da referência de blips do docs.fivem.net; para adicionar um sprite novo, coloque o arquivo lá, inclua o id em `web/src/lib/blipSprites.ts` e rode o build.
+
+## Mais scripts da Mengazo
+
+O Horizon é grátis. Se ele foi útil no seu servidor, conheça os scripts pagos, feitos com o mesmo cuidado e com suporte a ESX, QBCore e Qbox:
+
+- **[Mengazo Survival](https://tebex.mengazo.com/scripts/survival?utm_source=github&utm_medium=free-script&utm_campaign=horizon)**: sistema de morte completo, do tiro ao respawn. Toda morte tem replay, e a denúncia chega à staff com o vídeo anexado.
+- **[Mengazo Police](https://tebex.mengazo.com/scripts/police?utm_source=github&utm_medium=free-script&utm_campaign=horizon)**: tablet, ficha criminal, boletins, código penal, prisão, dispatch ao vivo e body cam em um sistema só.
+
+Loja: **[tebex.mengazo.com](https://tebex.mengazo.com/?utm_source=github&utm_medium=free-script&utm_campaign=horizon)** · Suporte e novidades: **[Discord](https://dsc.gg/mengazo)**
 
 ## Licença
 
