@@ -6,20 +6,7 @@ Map markers projected onto the horizon. The player holds a key (default `J`), th
 
 Made by [Mengazo](https://tebex.mengazo.com/?utm_source=github&utm_medium=free-script&utm_campaign=horizon). Free and open source.
 
-## Compared with GTA VI
-
-<table>
-  <tr>
-    <td width="50%"><img src="docs/horizon.jpg" alt="mengazo-horizon in FiveM: marker card with distance, street, view on map and set destination"></td>
-    <td width="50%"><img src="docs/gta-vi.jpg" alt="GTA VI: objective card with description, view on map and set destination"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>mengazo-horizon</b> in FiveM</td>
-    <td align="center"><b>GTA VI</b> (image: Rockstar Games)</td>
-  </tr>
-</table>
-
-Both screenshots use the Portuguese interface.
+![Hold J, aim at a marker and click to set the waypoint](docs/how-it-works-en.jpg)
 
 ## Installation
 
