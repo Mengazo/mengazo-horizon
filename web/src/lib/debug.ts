@@ -26,7 +26,7 @@ const DEBUG_OPEN: OpenPayload = {
 }
 
 const DEBUG_POINTS: DebugPoint[] = [
-  { id: 'point:mission', label: 'Get another weapon', location: 'Vinewood Blvd · Downtown Vinewood', description: 'Working for Brian takes better gear. Buy a rifle at the nearest gun store.', color: '#e83e8c', icon: 'weapon', image: '', sprite: false, bearing: 4, elevation: 0.47, distance: 193 },
+  { id: 'point:mission', label: 'Deliver the package', location: 'Vinewood Blvd · Downtown Vinewood', description: 'The buyer is waiting behind the diner. Get there before the deal falls through.', color: '#e83e8c', icon: 'flag', image: '', sprite: false, bearing: 4, elevation: 0.47, distance: 193 },
   { id: 'blip:12', label: false, previewLabel: 'Garage', location: 'Alta St · Alta', description: '', color: '#5db6e5', icon: 'pin', image: '', sprite: 357, bearing: -19, elevation: 0.5, distance: 86 },
   { id: 'blip:70', label: false, previewLabel: 'Clothes Store', location: 'Innocence Blvd · Strawberry', description: '', color: '#f0c850', icon: 'pin', image: '', sprite: 366, bearing: -10, elevation: 0.5, distance: 203 },
   { id: 'blip:18',label: false, previewLabel: 'Convenience Store', location: 'Clinton Ave · Vinewood', description: '', color: '#72cc72', icon: 'pin', image: '', sprite: 52, bearing: 27, elevation: 0.44, distance: 412 },
